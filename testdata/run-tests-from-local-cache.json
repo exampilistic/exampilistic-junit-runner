@@ -1,0 +1,46 @@
+{
+	"type": "given-when-then",
+	"name": "Run tests from local cache",
+	
+	"phrases": [
+		{ "id": 1, "phrase": "the test data contains a test that is marked as $lifecyclePhase" },
+		{ "id": 2, "phrase": "that test will $testResult when executed" },
+		{ "id": 3, "phrase": "I run all tests" },
+		{ "id": 4, "phrase": "This test will be marked as $testStatus" }
+	],
+
+	"data": [
+		{
+			"given": [ 
+				{ "phrase": 1, "lifecyclePhase": "implemented" },
+				{ "phrase": 2, "testResult": "pass" }
+			],
+			"when": { "phrase": 3 },
+			"then": [ { "phrase": 4, "testStatus": "green" } ]
+		},
+		{
+			"given": [ 
+				{ "phrase": 1, "lifecyclePhase": "implemented" },
+				{ "phrase": 2, "testResult": "fail" }
+			],
+			"when": { "phrase": 3 },
+			"then": [ { "phrase": 4, "testStatus": "red" } ]
+		},
+		{
+			"given": [ 
+				{ "phrase": 1, "lifecyclePhase": "in development" },
+				{ "phrase": 2, "testResult": "pass" }
+			],
+			"when": { "phrase": 3 },
+			"then": [ { "phrase": 4, "testStatus": "green" } ]
+		},
+		{
+			"given": [ 
+				{ "phrase": 1, "lifecyclePhase": "in development" },
+				{ "phrase": 2, "testResult": "fail" }
+			],
+			"when": { "phrase": 3 },
+			"then": [ { "phrase": 4, "testStatus": "yellow" } ]
+		}
+	]
+}
