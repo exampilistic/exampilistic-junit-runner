@@ -1,4 +1,17 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
+
+buildscript {
+	ext.kotlin_version = '1.2.20'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -22,10 +35,12 @@ dependencies {
 	compile "org.junit.platform:junit-platform-engine:1.0.1"
 	compile "com.google.code.gson:gson:2.8.2"
 	compile "net.davidtanzer:jdefensive:0.2.0"
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+	compile("org.jetbrains.kotlin:kotlin-reflect")
 
 	testRuntime "org.junit.platform:junit-platform-launcher:1.0.1"
 	testCompile "org.junit.jupiter:junit-jupiter-api:5.0.1"
 	testRuntime "org.junit.jupiter:junit-jupiter-engine:5.0.1"
 	testCompile "org.mockito:mockito-core:1.9.5"
-	testCompile "org.assertj:assertj-core:3.8.0"
+	testCompile "org.assertj:assertj-core:3.9.0"
 }
